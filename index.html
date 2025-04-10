@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fighting Game</title>
+  <style>
+    *{
+      box-sizing: border-box;
+      font-family: "Press Start 2P", system-ui;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: black;
+    }
+
+    .hidden{
+      display: none;
+    }
+
+    button:hover{
+      color: white;
+      background-color: black;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div style="position: relative; display: inline-block;">
+    <div style="position: absolute; display: flex; align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;">
+      <!-- players health bar -->
+      <div style="position: relative; flex: 1; display: flex; justify-content: flex-end; border-top: 4px solid white; border-left: 4px solid white; border-bottom: 4px solid white;">
+        <div style="background-color: #ff0000; height: 30px; width: 100%;"></div>
+        <div id="playerHealth" style="position: absolute; background-color: rgb(129,140,248); top: 0; bottom: 0; right: 0;width: 100%;"></div>
+      </div>
+      <!-- timer -->
+      <div id="timer" style="background-color: #000000; width: 100px; height: 50px;display: flex; align-items: center;justify-content: center; color: #ffffff; border: 4px solid white">60</div>
+      <!-- enemys health bar -->
+      <div style="position: relative; flex: 1; border-top: 4px solid white; border-right: 4px solid white; border-bottom: 4px solid white;">
+        <div style="background-color: #ff0000; height: 30px; width: 100%;"></div>
+        <div id="enemyHealth" style="position: absolute; background-color: rgb(129,140,248); inset: 0;"></div>
+      </div>
+    </div>
+    <div id="displayMsg" style="
+      position: absolute; 
+      color: #fff; 
+      inset: 0; 
+      display: none; 
+      align-items: center; 
+      justify-content: center;">
+    </div>
+    <canvas></canvas>
+    <div style="
+      position: absolute;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 10;">
+        <button id="beginButton" style="
+          padding: 16px 26px;
+          border-radius: 0;
+          background: white;
+          border: black 3px solid;
+          color: black;
+          cursor: pointer;
+        ">Begin</button>
+    </div>
+    <div id="tutorial" style="
+      position: absolute;
+      color: rgb(90, 62, 62);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.75);">
+      <img src="./images/howToPlay.png" alt="how to play" />
+      <button id="startButton" style="
+        padding: 16px 26px;
+        border-radius: 0;
+        background: white;
+        border: black 3px solid;
+        color: black;
+        cursor: pointer;
+        font-weight: 700;
+        position: absolute;
+        bottom: 100px;
+      ">Start</button>
+    </div>
+    <!-- restart game button -->
+    <div id="restartButtonDiv" style="
+      position: absolute;
+      color: white;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 10;">
+      <button id="restartButton" style="
+        padding: 16px 26px;
+        border-radius: 0;
+        background: white;
+        border: black 3px solid;
+        color: black;
+        cursor: pointer;
+      ">Restart</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script src="./js/utils.js"></script>
+  <script src="./js/classes.js"></script>
+  <script src="canvas.js"></script>
+</body>
+</html>
